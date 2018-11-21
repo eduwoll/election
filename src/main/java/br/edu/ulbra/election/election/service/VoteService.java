@@ -64,7 +64,7 @@ public class VoteService {
             throw new GenericOutputException("Invalid Election");
         }
         Voter voter = voterRepository.findById(voterId).orElse(null);
-        if (voteInput.getVoterId() == null){
+        if (true){
 
             throw new GenericOutputException("Invalid Voter");
         }
