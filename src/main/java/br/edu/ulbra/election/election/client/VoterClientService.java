@@ -1,7 +1,6 @@
 package br.edu.ulbra.election.election.client;
 
 import br.edu.ulbra.election.election.output.v1.VoterOutput;
-import br.edu.ulbra.election.election.model.Voter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
@@ -22,10 +21,10 @@ public class VoterClientService {
         return this.voterClient.getById(id);
     }
 
-    @FeignClient(value="election-service", url="${url.election-service}")
+    @FeignClient(value="voter-service", url="${url.voter-service}")
     private interface VoterClient {
 
-        @GetMapping("/v1/election/{electionId}")
-        VoterOutput getById(@PathVariable(name = "electionId") Long electionId);
+        @GetMapping("/v1/voter/{voterId}")
+        VoterOutput getById(@PathVariable(name = "voterId") Long voterId);
     }
 }
