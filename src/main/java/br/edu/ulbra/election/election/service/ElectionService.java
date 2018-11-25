@@ -31,6 +31,7 @@ public class ElectionService {
 
     private static final String MESSAGE_INVALID_ID = "Invalid id";
     private static final String MESSAGE_ELECTION_NOT_FOUND = "Election not found";
+    private static final String MESSAGE_IMPOSSIBLE_MODIFY = "Impossible modify Election";
 
     public List<ElectionOutput> getAll(){
         Type electionOutputListType = new TypeToken<List<ElectionOutput>>(){}.getType();
@@ -86,7 +87,6 @@ public class ElectionService {
         if (election == null){
             throw new GenericOutputException(MESSAGE_ELECTION_NOT_FOUND);
         }
-
         electionRepository.delete(election);
 
         return new GenericOutput("Election deleted");
